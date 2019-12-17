@@ -1,0 +1,232 @@
+$bg-light: #fcfcfc
+$bg-dark: #ccc
+$bg-darker: #aaa
+$text-dark: #333
+$light-red: #f37
+$dark-red: #d06
+$nice-blue: #2448dd
+
+$border: 1.1vw
+
+* 
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    font-family: Arial Black
+
+body
+    display: flex
+    justify-content: center
+    font-size: 100%
+
+.wrapper
+    display: flex
+    flex-direction: column
+    width: 87%
+    background-color: $bg-light
+    main
+        user-select: none
+        width: 100%
+        display: flex
+        flex-direction: unset
+        flex-wrap: wrap
+        justify-content: space-between
+        .calendar_big
+            order: -1
+            width: 100%
+            display: flex
+            flex-direction: column
+            header
+                order: -1
+            .table_header
+                font-size: 1.35vw
+                background-color: $bg-dark
+        .month
+            color: $text-dark
+        .year
+            color: $light-red
+        header
+            width: 100%
+            height: 9vh
+            display: flex
+            align-items: center
+            justify-content: space-around
+            font-size: 4vw
+            font-weight: 600
+        .table_header
+            display: flex
+            flex-direction: row
+            width: 100%
+            padding: 1% 0
+            .item
+                width: calc(100% / 8)
+                text-align: center
+                word-spacing: 100vw
+        .table_body
+            display: flex
+            flex-direction: row
+            .weeks
+                width: calc(100% / 8)
+                display: flex
+                flex-direction: column
+                .item
+                    width: 100%
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    font-size: 4vw
+                    font-weight: 1000
+                    color: $bg-dark
+                    text-shadow: 0 0 .1vw black
+                    -webkit-text-stroke: .1vw $text-dark
+            .days
+                display: flex
+                flex-direction: row
+                flex-wrap: wrap
+                width: calc(100% / 8 * 7)
+                .item
+                    display: flex
+                    width: calc(100% / 7)
+                    justify-content: center
+                    align-items: center
+                    font-size: 4vw
+                    font-weight: 1000
+                    color: $text-dark
+                    border-left: .2vw solid $bg-dark
+                    &:hover
+                        border-left: $border solid $dark-red
+                        border-right: $border solid $dark-red
+                        position: relative
+                        cursor: pointer
+                        &::before
+                            position: absolute
+                            content: ''
+                            width: calc(100% + 2.2vw)
+                            height: $border*1.5
+                            background-color: $dark-red
+                            top: -$border
+                            left: -$border
+                        &::after
+                            position: absolute
+                            content: ''
+                            width: calc(100% + 2.2vw)
+                            height: $border*1.5
+                            background-color: $dark-red
+                            bottom: -$border
+                            left: -$border
+                    &.holiday
+                        color: $dark-red
+                    &.sat
+                        color: $light-red
+                    &.another_month
+                        color: #fff
+                        text-shadow: 0 0 .1vw black
+                        -webkit-text-stroke: .1vw $text-dark
+        .calendar_small
+            margin-top: 1%
+            width: 49%
+            background-color: $bg-dark
+            header
+                font-size: 2.5vw
+                height: 5vh
+                min-height: 70px
+            .table_header
+                background-color: $bg-light
+                width: 100%
+                font-size: .65vw
+                .item
+                    width: calc(100%/8)
+            .table_body
+                margin: 0
+                width: 100%
+                .weeks
+                    width: calc(100%/8) 
+                    .item
+                        font-size: 2vw
+                        width: 100%
+                        color: $bg-light
+                .days.item
+                    font-size: 2vw
+                    border-left: .1vw solid $bg-darker
+                    &:hover
+                        border-right: $border/2 solid $dark-red
+                        border-left: $border/2 solid $dark-red
+                        &::before
+                            position: absolute
+                            content: ''
+                            width: calc(100% + 1.1vw)
+                            height: $border*0.75
+                            background-color: $dark-red
+                            top: -$border/2
+                            left: -$border/2
+                        &::after
+                            position: absolute
+                            content: ''
+                            width: calc(100% + 1.1vw)
+                            height: $border*0.75
+                            background-color: $dark-red
+                            bottom: -$border/2
+                            left: -$border/2
+                            z-index: 99
+                    &.another_month
+                        color: $bg-dark
+                    .condensed
+                        transform: scale(.5, 1.0)
+    footer
+        margin-top: 25px
+        display: flex
+        flex-direction: unset
+        justify-content: space-around
+        flex-wrap: wrap-reverse
+        align-items: center
+        padding: 20px 0
+        background-color: $bg-darker
+        .footer_logo
+            width: 30%
+            min-width: 280px
+            max-width: 1vw
+            img
+                width: 100%
+                mix-blend-mode: darken
+        .footer_text
+            color: $nice-blue
+            font-weight: 400
+            width: 60%
+            display: flex
+            flex-direction: column
+            .footer_text_desc
+                font-size: 1.35vw
+                justify-content: center
+                text-transform: uppercase
+                text-align: justify
+            .footer_contacts
+                display: flex
+                flex-direction: unset
+                flex-wrap: wrap
+                justify-content: space-between
+                font-size: 2.5vw
+                a
+                    color: $nice-blue
+                    text-decoration: none
+                a:hover
+                    text-decoration: underline
+
+@media screen and (max-width: 800px)
+    .wrapper
+        main
+            .calendar_big
+                order: 0
+                header
+                    order: 0
+            .calendar_small
+                width: 100%
+                header
+                    font-size: 4vw
+                .table_body
+                    .weeks.item
+                        font-size: 4vw
+                    .days.item
+                        font-size: 4vw
+
+
+
