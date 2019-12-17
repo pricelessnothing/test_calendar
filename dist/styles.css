@@ -21,6 +21,8 @@ body {
     flex-direction: unset;
     flex-wrap: wrap;
     justify-content: space-between; }
+    .wrapper main a {
+      text-decoration: none; }
     .wrapper main .calendar_big {
       order: -1;
       width: 100%;
@@ -172,9 +174,8 @@ body {
     padding: 20px 0;
     background-color: #aaa; }
     .wrapper footer .footer_logo {
-      width: 30%;
-      min-width: 280px;
-      max-width: 1vw; }
+      width: 30vw;
+      min-width: 280px; }
       .wrapper footer .footer_logo img {
         width: 100%;
         mix-blend-mode: darken; }
@@ -201,7 +202,7 @@ body {
         .wrapper footer .footer_text .footer_contacts a:hover {
           text-decoration: underline; }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 966px) {
   .wrapper main .calendar_big {
     order: 0; }
     .wrapper main .calendar_big header {
@@ -210,7 +211,30 @@ body {
     width: 100%; }
     .wrapper main .calendar_small header {
       font-size: 4vw; }
+    .wrapper main .calendar_small .table_header {
+      font-size: 1.35vw; }
     .wrapper main .calendar_small .table_body .weeks.item {
       font-size: 4vw; }
-    .wrapper main .calendar_small .table_body .days.item {
-      font-size: 4vw; } }
+    .wrapper main .calendar_small .table_body .days .item {
+      font-size: 4vw; }
+      .wrapper main .calendar_small .table_body .days .item:hover {
+        border-left: 1.1vw solid #d06;
+        border-right: 1.1vw solid #d06;
+        position: relative;
+        cursor: pointer; }
+        .wrapper main .calendar_small .table_body .days .item:hover::before {
+          position: absolute;
+          content: '';
+          width: calc(100% + 2.2vw);
+          height: 1.65vw;
+          background-color: #d06;
+          top: -1.1vw;
+          left: -1.1vw; }
+        .wrapper main .calendar_small .table_body .days .item:hover::after {
+          position: absolute;
+          content: '';
+          width: calc(100% + 2.2vw);
+          height: 1.65vw;
+          background-color: #d06;
+          bottom: -1.1vw;
+          left: -1.1vw; } }

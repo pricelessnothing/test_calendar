@@ -31,6 +31,8 @@ body
         flex-direction: unset
         flex-wrap: wrap
         justify-content: space-between
+        a
+            text-decoration: none
         .calendar_big
             order: -1
             width: 100%
@@ -182,9 +184,8 @@ body
         padding: 20px 0
         background-color: $bg-darker
         .footer_logo
-            width: 30%
+            width: 30vw
             min-width: 280px
-            max-width: 1vw
             img
                 width: 100%
                 mix-blend-mode: darken
@@ -211,7 +212,7 @@ body
                 a:hover
                     text-decoration: underline
 
-@media screen and (max-width: 800px)
+@media screen and (max-width: 966px)
     .wrapper
         main
             .calendar_big
@@ -222,11 +223,34 @@ body
                 width: 100%
                 header
                     font-size: 4vw
+                .table_header
+                    font-size: 1.35vw
                 .table_body
                     .weeks.item
                         font-size: 4vw
-                    .days.item
-                        font-size: 4vw
-
+                    .days
+                        .item
+                            font-size: 4vw
+                            &:hover
+                                border-left: $border solid $dark-red
+                                border-right: $border solid $dark-red
+                                position: relative
+                                cursor: pointer
+                                &::before
+                                    position: absolute
+                                    content: ''
+                                    width: calc(100% + 2.2vw)
+                                    height: $border*1.5
+                                    background-color: $dark-red
+                                    top: -$border
+                                    left: -$border
+                                &::after
+                                    position: absolute
+                                    content: ''
+                                    width: calc(100% + 2.2vw)
+                                    height: $border*1.5
+                                    background-color: $dark-red
+                                    bottom: -$border
+                                    left: -$border
 
 
